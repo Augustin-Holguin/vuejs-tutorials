@@ -1,0 +1,14 @@
+.success-message {
+  border: solid 1px gold;
+  margin-bottom: 20px;
+}
+
+.success-message i {
+  position: absolute;
+  right: 15px;
+  padding-top: 5px;
+}
+
+.success-message i:hover {
+  color: red;
+}
