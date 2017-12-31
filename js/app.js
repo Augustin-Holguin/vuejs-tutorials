@@ -1,14 +1,14 @@
-new Vue({
+let vm = new Vue({
   el: '#app',
   data: {
-    message: "Coding is life",
-    success: true,
-    planets: ["Earth", "Mars", "Jupiter", "Saturn"]
+    seconds: 0
   },
-  methods: {
-    close: function () {
-      this.message = "closed"
-      this.success = false
-    }
+  mounted: function () {
+    this.$interval = setInterval(() => {
+      this.seconds++
+    }, 1000)
+  },
+  destroyed: function () {
+    clearInterval(this.$interval)
   }
 })
