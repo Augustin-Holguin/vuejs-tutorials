@@ -1,17 +1,26 @@
-Vue.directive('salut', {
-  bind: function (el, binding, vnode) {
-    console.log(el, binding)
-  }
-})
+let counter = {
+  data: function() {
+    return {
+      count: 0
+    }
+  },
+  props: {
+    start: {type: Number, default: 0}
+  },
+  computed: {
+    total: function() {
+      return this.start + this.count
+    }
+  },
+  methods: {
+    increment: function () {
+      this.count ++
+    }
+  },
+  template: `<button @click="increment">{{ total }}</button><br><br>`
+}
 
 let vm = new Vue ({
   el: '#app',
-  data: {
-    message: 'Gus',
-  },
-  watch: {
-    fullname: function (value) {
-      console.log('watch', value)
-    }
-  }
+  components: { counter },
 })
