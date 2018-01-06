@@ -3,15 +3,16 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <counter></counter>
-    <counter></counter>
+    <alert></alert>
   </div>
 </template>
 
 <script>
 import Counter from './Counter.vue'
+import Alert from './Alert.vue'
 
 export default {
-components: { Counter },
+components: { Counter, Alert },
   name: 'app',
   data () {
     return {
