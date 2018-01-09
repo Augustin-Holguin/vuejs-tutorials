@@ -8,6 +8,9 @@
     <slot></slot>
     <button class="carousel__nav carousel__next" @click.prevent="next"> > </button>
     <button class="carousel__nav carousel__prev" @click.prevent="prev"> < </button>
+    <div class="carousel__pagination">
+      <button v-for="n in slidesCount" @click="goto(n-1)" :class="{active: n-1 == index}"></button>
+    </div>
   </div>
 </template>
 
@@ -16,7 +19,8 @@
     data () {
       return {
         index: 0,
-        slides: []
+        slides: [],
+        direction: null
       }
     },
     mounted () {
@@ -31,15 +35,21 @@
     methods: {
       next () {
         this.index++
+        this.direction = 'right'
         if (this.index >= this.slidesCount) {
           this.index = 0
         }
       },
       prev () {
         this.index--
+        this.direction = 'left'
         if (this.index < 0) {
           this.index = this.slidesCount - 1
         }
+      },
+      goto (index) {
+        this.direction = index > this.index ? 'right' : 'left'
+        this.index = index
       }
     }
   }
@@ -52,19 +62,20 @@
 
   .carousel__nav {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 10px;
     font-size: 4em;
     color: white;
     width: 60px;
     height: 60px;
-    background: black;
+    background: gold;
     border-radius: 50%;
+    opacity: 0.7;
   }
 
   .carousel__nav:hover {
-    background: pink;
     cursor: pointer;
+    opacity: 1;
   }
 
   .carousel__nav.carousel__next {
@@ -74,6 +85,34 @@
     color: white;
     width: 60px;
     height: 60px;
+  }
+
+/* PAGINATION */
+
+  .carousel__pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .carousel__pagination button {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #FFF;
+    opacity: 0.85;
+    border-radius: 10px;
+    margin: 0 2px;
+  }
+
+  .carousel__pagination button:hover {
+    cursor: pointer;
+  }
+
+  .carousel__pagination button.active {
+    background: pink;
   }
 
 </style>
