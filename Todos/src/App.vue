@@ -1,11 +1,18 @@
 <template>
   <div>
-    <carousel> Hello
+    <todos></todos>
+    <br/>
+    <carousel>
       <carousel-slide>
         Yo
+        <img src="http://lorempicsum.com/futurama/630/300/1">
+      </carousel-slide>
+      <carousel-slide>
+        Yi
+        <img src="http://lorempicsum.com/futurama/630/300/2">
       </carousel-slide>
     </carousel>
-    <todos></todos>
+    <br/><br/>
   </div>
 </template>
 
