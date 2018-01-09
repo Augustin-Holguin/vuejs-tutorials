@@ -1,8 +1,10 @@
 <template>
-  <div v-show="visible">
-    Index: {{ index }}
-    <slot></slot>
-  </div>
+  <transition name="slide">
+    <div v-show="visible">
+      Index: {{ index }}
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -21,4 +23,12 @@
 </script>
 
 <style>
+  .slide-enter-active {
+    animation: slideIn 3s;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
 </style>

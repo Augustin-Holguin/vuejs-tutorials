@@ -6,8 +6,8 @@
       </header>
     </section>
     <slot></slot>
-    <button class="carousel__nav carousel__next" @click.prevent="next">Next</button>
-    <button class="carousel__nav carousel__prev" @click.prevent="prev">Previous</button>
+    <button class="carousel__nav carousel__next" @click.prevent="next"> > </button>
+    <button class="carousel__nav carousel__prev" @click.prevent="prev"> < </button>
   </div>
 </template>
 
@@ -45,5 +45,35 @@
   }
 </script>
 
-<style lang="css">
+<style>
+  .carousel {
+    position: relative;
+  }
+
+  .carousel__nav {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    font-size: 4em;
+    color: white;
+    width: 60px;
+    height: 60px;
+    background: black;
+    border-radius: 50%;
+  }
+
+  .carousel__nav:hover {
+    background: pink;
+    cursor: pointer;
+  }
+
+  .carousel__nav.carousel__next {
+    right: 10px;
+    left: auto;
+    font-size: 4em;
+    color: white;
+    width: 60px;
+    height: 60px;
+  }
+
 </style>

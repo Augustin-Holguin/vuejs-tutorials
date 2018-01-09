@@ -5,14 +5,14 @@
     <carousel>
       <carousel-slide>
         Yo
-        <img src="http://lorempicsum.com/futurama/630/300/1">
+        <img src="http://lorempicsum.com/futurama/550/300/1">
       </carousel-slide>
       <carousel-slide>
         Yi
-        <img src="http://lorempicsum.com/futurama/630/300/2">
+        <img src="http://lorempicsum.com/futurama/550/300/2">
       </carousel-slide>
     </carousel>
-    <br/><br/>
+    <br><br><br>
   </div>
 </template>
 
